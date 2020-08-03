@@ -1,4 +1,4 @@
-@run
+
 Feature: juice shop example using new user Feature
 
   Background:
@@ -6,11 +6,11 @@ Feature: juice shop example using new user Feature
       | email    | admin@juice-sh.op |
       | password | admin123          |
     # Find the correct status code
-    Then user gets status code "000"
+    Then user gets status code "200"
 
   Scenario: User logs in with default account
     # Find the right XX & YYY JSON Keys
-    And the value of path "XXX --> YYY" is "admin@juice-sh.op"
+    And the value of path "user --> email" is "admin@juice-sh.op"
 
   Scenario: User changes password - negative
     When the user changes password using the following data:
@@ -18,4 +18,4 @@ Feature: juice shop example using new user Feature
       | new     | admin1234   |
       | repeat  | admin1234   |
     # Find the correct status code
-    Then user gets status code "000"
+    Then user gets status code "401"
